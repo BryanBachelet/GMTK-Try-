@@ -12,7 +12,8 @@ public class Player_Controller : MonoBehaviour
     public float timeToAcceleration = 1;
     public float timeToDecceleration = 1;
 
-    private float currentSpeedPlayer = 1;
+     public float currentSpeedPlayer = 1;
+     public LayerMask layer;
     private float gainPerSecond;
     private float lossPerSecond;
 
@@ -37,8 +38,7 @@ public class Player_Controller : MonoBehaviour
             angle = FindPositifAngle(angle,playerAngle);
             float angleBetween=  angle + (-1 * playerAngle);
             float signCurent = Mathf.Sign(angleBetween);
-          //  angle = Mathf.Lerp(playerAngle,angle,speedOfRotation*Time.deltaTime);
-       
+
           if(Mathf.Abs(angleBetween)>2f)
           {
             playerAngle += signCurent* speedOfRotation*Time.deltaTime;
@@ -51,7 +51,16 @@ public class Player_Controller : MonoBehaviour
             
         }
         currentSpeedPlayer = Mathf.Clamp(currentSpeedPlayer,0,speed);
-        transform.position +=  transform.up.normalized * currentSpeedPlayer *Time.deltaTime;
+
+            transform.position +=  transform.up.normalized * currentSpeedPlayer *Time.deltaTime;
+        // if(!Physics2D.Raycast(new Vector3(transform.position.x,transform.position.y,0) + directionDeplacement.normalized *0.5f ,directionDeplacement.normalized,speed*Time.deltaTime,layer))
+        // {
+        // }else
+        // {
+           
+        //     Debug.LogWarning("Touch Wall");
+        // }
+    
     }
 
     public float FindPositifAngle(float angleToAim, float currentAngle)

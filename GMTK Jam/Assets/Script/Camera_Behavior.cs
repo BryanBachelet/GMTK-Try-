@@ -38,4 +38,11 @@ public class Camera_Behavior : MonoBehaviour
         Vector3 nextCameraPosition = new Vector3(player.transform.position.x,player.transform.position.y,-currentCameraZDistance);
         transform.position = Vector3.Lerp(transform.position,nextCameraPosition,speed * Time.deltaTime);
     }
+
+    public void AddAgent()
+    {
+        numberOfAgent++;
+    }
+  
+
 }
