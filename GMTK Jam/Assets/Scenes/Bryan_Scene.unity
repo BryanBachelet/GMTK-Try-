@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -491,6 +491,7 @@ GameObject:
   - component: {fileID: 1243477940}
   - component: {fileID: 1243477939}
   - component: {fileID: 1243477942}
+  - component: {fileID: 1243477943}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -510,7 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 076c7bdb569540242aafb67b9e114fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
   deadzone: 0.2
   speedOfRotation: 200
   timeToAcceleration: 1
@@ -518,7 +519,7 @@ MonoBehaviour:
   currentSpeedPlayer: 1
   layer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
 --- !u!212 &1243477937
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -731,6 +732,22 @@ PolygonCollider2D:
     - - {x: 0, y: 0.5}
       - {x: -0.4330127, y: -0.25000003}
       - {x: 0.43301272, y: -0.24999996}
+--- !u!114 &1243477943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243477935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 104f059ce55a044529aaf5c70d000a39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boidCount: 300
+  boidPrefab: {fileID: 1103657446341984, guid: 969f3f70ec16241b2961699e21a71929, type: 3}
+  param: {fileID: 11400000, guid: b4d1e89f21b5e48e1a9817346dd475fe, type: 2}
+  velocity: {x: 0, y: 0, z: 0}
 --- !u!1 &1396418965
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,13 +874,13 @@ GameObject:
   - component: {fileID: 1521613302}
   - component: {fileID: 1521613301}
   - component: {fileID: 1521613303}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1521613301
 SpriteRenderer:
   m_ObjectHideFlags: 0
