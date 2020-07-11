@@ -9,11 +9,18 @@ public class Player_Controller : MonoBehaviour
     [Range(0,1f)]
     public float deadzone;
     public float speedOfRotation = 4;
+    public float timeToAcceleration = 1;
+    public float timeToDecceleration = 1;
+
+    private float currentSpeedPlayer = 1;
+    private float gainPerSecond;
+    private float lossPerSecond;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gainPerSecond = speed/timeToAcceleration;
+        lossPerSecond = speed/timeToDecceleration;
     }
 
     // Update is called once per frame
@@ -24,14 +31,27 @@ public class Player_Controller : MonoBehaviour
         Vector3 directionDeplacement = new Vector3(horizontal,vertical,0);
         if(directionDeplacement.magnitude>deadzone)
         {
-          
-            transform.position +=  transform.up.normalized * speed *Time.deltaTime;
+            currentSpeedPlayer += gainPerSecond *Time.deltaTime;
             float angle = Vector3.SignedAngle(Vector3.up, directionDeplacement.normalized, Vector3.forward);
             float playerAngle =  Vector3.SignedAngle(Vector3.up,transform.up, Vector3.forward);
             angle = FindPositifAngle(angle,playerAngle);
-            angle = Mathf.Lerp(playerAngle,angle,speedOfRotation*Time.deltaTime);
-            transform.rotation=  Quaternion.Euler(0,0,angle);
+            float angleBetween=  angle + (-1 * playerAngle);
+            float signCurent = Mathf.Sign(angleBetween);
+          //  angle = Mathf.Lerp(playerAngle,angle,speedOfRotation*Time.deltaTime);
+       
+          if(Mathf.Abs(angleBetween)>2f)
+          {
+            playerAngle += signCurent* speedOfRotation*Time.deltaTime;
+          }
+        
+            transform.rotation=  Quaternion.Euler(0,0,playerAngle);
+        }else
+        {
+            currentSpeedPlayer -= lossPerSecond *Time.deltaTime;
+            
         }
+        currentSpeedPlayer = Mathf.Clamp(currentSpeedPlayer,0,speed);
+        transform.position +=  transform.up.normalized * currentSpeedPlayer *Time.deltaTime;
     }
 
     public float FindPositifAngle(float angleToAim, float currentAngle)
