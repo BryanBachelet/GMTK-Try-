@@ -9663,7 +9663,7 @@ Camera:
   m_GameObject: {fileID: 534669902}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
@@ -19263,7 +19263,7 @@ PrefabInstance:
     - target: {fileID: 6447985481114423358, guid: 32cf1d79b69cfe54e97505e6f4044a79,
         type: 3}
       propertyPath: boidCount
-      value: 1500
+      value: 2500
       objectReference: {fileID: 0}
     - target: {fileID: 6447985481114423358, guid: 32cf1d79b69cfe54e97505e6f4044a79,
         type: 3}
@@ -19285,6 +19285,12 @@ PrefabInstance:
       propertyPath: mat4
       value: 
       objectReference: {fileID: 2100000, guid: a8f78a47f62352a48a8714337a3cd7c6, type: 2}
+    - target: {fileID: 6447985481114423358, guid: 32cf1d79b69cfe54e97505e6f4044a79,
+        type: 3}
+      propertyPath: param
+      value: 
+      objectReference: {fileID: 11400000, guid: f48030592bd6b7045b58d376c1beb6d3,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32cf1d79b69cfe54e97505e6f4044a79, type: 3}
 --- !u!1 &1641646711

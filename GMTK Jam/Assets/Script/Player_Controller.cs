@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player_Controller : MonoBehaviour
 {
     public float speed;
+    public float DeccelerationValue;
+    float speedIni;
 
     [Range(0,1f)]
     public float deadzone;
@@ -20,6 +22,7 @@ public class Player_Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speedIni = speed;
         gainPerSecond = speed/timeToAcceleration;
         lossPerSecond = speed/timeToDecceleration;
     }
@@ -27,6 +30,10 @@ public class Player_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(speed > speedIni)
+        {
+            speed -= DeccelerationValue * Time.deltaTime;
+        }
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         Vector3 directionDeplacement = new Vector3(horizontal,vertical,0);
