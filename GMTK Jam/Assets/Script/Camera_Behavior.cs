@@ -25,12 +25,7 @@ public class Camera_Behavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(Input.GetKeyDown(KeyCode.Joystick1Button0))
-       {
-            Vector3 newPos = new Vector3(Random.Range(-2,2),Random.Range(-2,2),0);
-            Instantiate(agent,player.transform.position + newPos,player.transform.rotation, player.transform);
-            numberOfAgent++;
-       } 
+      
        if(numberOfAgent>minimumAgentNumber)
        {
         currentCameraZDistance =  cameraZDistanceForOne +( numberOfAgent-minimumAgentNumber) *gainZDistancePerAgent;
