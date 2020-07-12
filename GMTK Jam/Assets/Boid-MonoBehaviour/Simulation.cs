@@ -8,13 +8,13 @@ namespace Boid.OOP
 public class Simulation : MonoBehaviour
 {
     [SerializeField]
-    int boidCount = 100;
+    public int boidCount = 100;
 
     [SerializeField]
     GameObject boidPrefab;
 
     [SerializeField]
-    Param param;
+    public Param param;
 
     List<Boid> boids_ = new List<Boid>();
 

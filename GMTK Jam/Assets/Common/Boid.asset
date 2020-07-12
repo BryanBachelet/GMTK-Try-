@@ -18,7 +18,7 @@ MonoBehaviour:
   neighborDistance: 2
   neighborFov: 90
   separationWeight: 5
-  wallScale: 2.5
+  wallScale: 11.239994
   wallDistance: 2
   wallWeight: 1
   alignmentWeight: 2
